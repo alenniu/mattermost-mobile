@@ -315,7 +315,7 @@ export default class Login extends PureComponent {
     goToSignup = () => {
         const {intl} = this.context;
         const screen = 'Signup';
-        const title = intl.formatMessage({id: 'mobile.routes.signup', defaultMessage: 'Signup'});
+        const title = intl.formatMessage({id: 'mobile.routes.signup', defaultMessage: 'Sign-up'});
 
         goToScreen(screen, title);
     };
