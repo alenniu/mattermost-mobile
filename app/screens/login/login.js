@@ -312,6 +312,14 @@ export default class Login extends PureComponent {
         }
     };
 
+    goToSignup = () => {
+        const {intl} = this.context;
+        const screen = 'Signup';
+        const title = intl.formatMessage({id: 'mobile.routes.signup', defaultMessage: 'Signup'});
+
+        goToScreen(screen, title);
+    };
+
     render() {
         const {isLoading} = this.state;
 
@@ -367,6 +375,21 @@ export default class Login extends PureComponent {
             );
         }
 
+        let signupButton;
+        if (this.props.config.EnableSignInWithEmail === 'true' || this.props.config.EnableSignInWithUsername === 'true') {
+            signupButton = (
+                <Button
+                    onPress={this.goToSignup}
+                    containerStyle={[style.forgotPasswordBtn]}
+                >
+                    <FormattedText
+                        id='login.signup'
+                        defaultMessage='Create new account'
+                        style={style.forgotPasswordTxt}
+                    />
+                </Button>
+            );
+        }
         return (
             <View style={style.container}>
                 <StatusBar/>
@@ -426,6 +449,7 @@ export default class Login extends PureComponent {
                         />
                         {proceed}
                         {forgotPassword}
+                        {signupButton}
                     </KeyboardAwareScrollView>
                 </TouchableWithoutFeedback>
             </View>

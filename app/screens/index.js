@@ -46,6 +46,7 @@ export function registerScreens(store, Provider) {
     Navigation.registerComponent('ForgotPassword', () => wrapper(require('app/screens/forgot_password').default), () => require('app/screens/forgot_password').default);
     Navigation.registerComponent('ImagePreview', () => wrapper(require('app/screens/image_preview').default), () => require('app/screens/image_preview').default);
     Navigation.registerComponent('InteractiveDialog', () => wrapper(require('app/screens/interactive_dialog').default), () => require('app/screens/interactive_dialog').default);
+    Navigation.registerComponent('Signup', () => wrapper(require('app/screens/signup').default), () => require('app/screens/signup').default);
     Navigation.registerComponent('Login', () => wrapper(require('app/screens/login').default), () => require('app/screens/login').default);
     Navigation.registerComponent('LoginOptions', () => wrapper(require('app/screens/login_options').default), () => require('app/screens/login_options').default);
     Navigation.registerComponent('LongPost', () => wrapper(require('app/screens/long_post').default), () => require('app/screens/long_post').default);

@@ -403,6 +403,7 @@ export default class Client4 {
             {method: 'put', body: JSON.stringify({roles})},
         );
     };
+
     updateUserMfa = async (userId: string, activate: boolean, code: string) => {
         const body: any = {
             activate,
@@ -554,6 +555,21 @@ export default class Client4 {
 
         return data;
     };
+
+    signup = async (email: string, username: string, password: string) => {
+        const body: any = {
+            email,
+            username,
+            password,
+        };
+
+        const {data} = await this.doFetchWithResponse(
+            this.getUsersRoute(),
+            {method: 'post', body: JSON.stringify(body)},
+        );
+
+        return data;
+    }
 
     loginById = async (id: string, password: string, token = '', deviceId = '') => {
         analytics.trackAPI('api_users_login');

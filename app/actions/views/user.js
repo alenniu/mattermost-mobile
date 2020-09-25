@@ -183,6 +183,17 @@ export function login(loginId, password, mfaToken, ldapOnly = false) {
     };
 }
 
+export function signup(email, username, password) {
+    return async () => {
+        try {
+            const result = await Client4.signup(email, username, password);
+            return result;
+        } catch (error) {
+            return {error};
+        }
+    };
+}
+
 export function ssoLogin() {
     return async (dispatch, getState) => {
         const state = getState();
